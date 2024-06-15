@@ -19,7 +19,7 @@ const Register = () => {
     e.preventDefault();
     try {
       setLoading(true);
-      await axios.post("https://subconscious-notes.vercel.app/api/auth/register", {
+      await axios.post("/api/auth/register", {
         username,
         password,
       });
