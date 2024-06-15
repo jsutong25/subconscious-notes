@@ -1,0 +1,212 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Rainbow Cakes';
+    src: url('/font/Rainbow\ Cakes.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    font-family: 'Rainbow Cakes', sans-serif;
+    color: white;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+.Background {
+  min-height: 100vh;
+}
+
+.bg-custom-bg {
+  background-image: url('assets/bgimage.jpg');
+  background-size: cover; /* Ensures the background image covers the entire area */
+  background-position: center; /* Centers the background image */
+  background-repeat: no-repeat; /* Prevents the background image from repeating */
+}
+
+section {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+}
+
+/* Hide the default checkbox */
+input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+.sr-only {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+  .custom-checkbox {
+    display: inline-block;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+  }
+  
+  /* Style the check mark */
+  .custom-checkbox::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border: 4px solid #fff; /* Border color for the circle */
+    border-radius: 50%;
+  }
+  
+  /* Show the check mark when the checkbox is checked */
+  input[type="checkbox"]:checked + .custom-checkbox::before {
+    background-color: #93DEEF; /* Color of the check mark */
+  }
+  
+  /* Optional: Add focus styles for accessibility */
+  input[type="checkbox"]:focus + .custom-checkbox::before {
+    box-shadow: 0 0 2px 2px rgba(0, 123, 255, 0.5); /* Adjust color for focus outline */
+  }
+
+/* Animation for clouds */
+@keyframes moveRightCloud {
+  from { left: -200px; }
+  to { left: calc(100% + 200px); }
+}
+
+/* Animation for stars */
+@keyframes moveRightStar1 {
+  from { left: -100px; }
+  to { left: calc(100% + 100px); }
+}
+
+@keyframes moveRightStar2 {
+  from { left: -150px; }
+  to { left: calc(100% + 150px); }
+}
+
+@keyframes moveRightStar3 {
+  from { left: -120px; }
+  to { left: calc(100% + 120px); }
+}
+
+@keyframes moveRightStar4 {
+  from { left: -80px; }
+  to { left: calc(100% + 80px); }
+}
+
+@keyframes moveRightStar5 {
+  from { left: -200px; }
+  to { left: calc(100% + 200px); }
+}
+
+.cloud-big {
+  position: absolute;
+  animation: moveRightCloud 100s linear infinite;
+}
+
+.cloud-medium {
+  position: absolute;
+  animation: moveRightCloud 25s linear infinite;
+}
+.cloud-medium2 {
+  position: absolute;
+  animation: moveRightCloud 250s linear infinite;
+}
+
+.cloud-small {
+  position: absolute;
+  animation: moveRightCloud 60s linear infinite;
+}
+
+.cloud-small2 {
+  position: absolute;
+  animation: moveRightCloud 120s linear infinite;
+}
+
+.cloud-small3 {
+  position: absolute;
+  animation: moveRightCloud 170s linear infinite;
+}
+
+.star1 {
+  position: absolute;
+  animation: moveRightStar1 180s linear infinite;
+}
+
+.star2 {
+  position: absolute;
+  animation: moveRightStar2 50s linear infinite;
+}
+
+.star3 {
+  position: absolute;
+  animation: moveRightStar3 80s linear infinite;
+}
+
+.star4 {
+  position: absolute;
+  animation: moveRightStar4 180s linear infinite;
+}
+
+.star5 {
+  position: absolute;
+  animation: moveRightStar5 200s linear infinite;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  
+}
+
+.tooltip-text {
+  visibility: hidden;
+  width: 200px;
+  background-color: #93DEEF;
+  color: #fff;
+  text-align: center;
+  padding: 5px 10px;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.tooltip-text:after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #93DEEF transparent;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+}
